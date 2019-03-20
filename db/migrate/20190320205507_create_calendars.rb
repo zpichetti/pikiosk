@@ -4,7 +4,7 @@ class CreateCalendars < ActiveRecord::Migration[5.2]
       t.string :title
       t.datetime :date
       t.text :description
-      t.reference :board
+      t.references :board
 
       t.timestamps
     end
