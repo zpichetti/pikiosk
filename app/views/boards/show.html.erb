@@ -6,26 +6,18 @@
     <div class="col-md-9 main">
       <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel" data-interval="10000">
         <ol class="carousel-indicators">
-          <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-          <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+        <% @articles.each_with_index do |article, index| %>
+          <li data-target="#carouselExampleCaptions" data-slide-to="<%= index %>" class="<%= "active" if index == 0 %>"></li> 
+        <% end %>
         </ol>
         <div class="carousel-inner">
-          <div class="carousel-item active" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://source.unsplash.com/1600x900/?nature,water')">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>First slide label</h5>
+          <%  @articles.each_with_index do |article, index| %>
+            <div class="carousel-item <%= "active" if index == 0 %>" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('<%= cl_image_path article.photo %>')">
+              <div class="carousel-caption d-none d-md-block">
+                <h5><%= article.title %></h5>
+              </div>
             </div>
-          </div>
-          <div class="carousel-item" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://source.unsplash.com/1600x900/?nature,water')">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Second slide label</h5>
-            </div>
-          </div>
-          <div class="carousel-item" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://source.unsplash.com/1600x900/?nature,water')">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Third slide label</h5>
-            </div>
-          </div>
+          <% end %>
         </div>
       </div>
     </div>

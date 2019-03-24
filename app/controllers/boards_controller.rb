@@ -9,6 +9,7 @@ class BoardsController < ApplicationController
     @board = Board.find_by(link: params[:link])
     @meteo = @board.meteo
     @calendars = Calendar.where(board: @board).order(:date)
+    @articles = Article.where(board: @board)
   end
 
   def new
