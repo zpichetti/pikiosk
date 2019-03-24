@@ -1,0 +1,29 @@
+.calendars {
+  height: 80vh;
+  padding-right: 20px;
+}
+
+.calendar {
+  margin-top: 15px;
+  display: flex;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.calendar-content {
+  border-left: rgb(255, 123, 0) 3px solid;
+  margin-left: 15px;
+  padding-left: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.calendar-date {
+  width: 110px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  p {
+    margin: 0px;
+  }
+}

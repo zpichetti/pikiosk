@@ -1,11 +1,14 @@
 class BoardsController < ApplicationController
   before_action :authenticate_user! , only: [:show]
+
   def index
     @boards = Board.all
   end
 
   def show
     @board = Board.find_by(link: params[:link])
+    @meteo = @board.meteo
+    
   end
 
   def new
