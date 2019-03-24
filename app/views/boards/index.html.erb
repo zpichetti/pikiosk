@@ -1,26 +1,30 @@
 <div class="container">
   <h1>Les boards</h1>
-  <%= link_to 'Add', new_board_path, class: "btn btn-primary" %>
-  
-  
   <table class="table">
     <thead class="thead-dark">
       <tr>
         <th scope="col">#</th>
         <th scope="col">Name</th>
-        <th scope="col">News</th>
+        <th scope="col">Article</th>
         <th scope="col">Calendar</th>
+        <th scope="col">Location</th>
+        <th scope="col">Link</th>
+        <th scope="col"><i class="far fa-trash-alt"></i></th>
       </tr>
     </thead>
     <tbody>
       <% @boards.each_with_index do |board, index| %>
         <tr>
           <th scope="row"><%= index + 1 %></th>
-          <td><%= link_to board.name , board_path(board.link) %></td>
-          <td><%= link_to "News", board_articles_path(board)  %>(<%=board.articles.size %>)</td>  
+          <td><%= link_to board.name , edit_board_path(board) %></td>
+          <td><%= link_to "Articles", board_articles_path(board) %>(<%=board.articles.size %>)</td>  
           <td><%= link_to "Calendars", board_calendars_path(board) %>(<%=board.calendars.size %>)</td>
+          <td><%= board.location %></td>
+          <td><%= link_to board.link , board_path(board.link) %></td>
+          <td><i class="far fa-trash-alt"></i></td>
         </tr>
       <% end %>
     </tbody>
   </table>
+  <%= link_to 'Add', new_board_path, class: "btn btn-primary" %>
 </div>

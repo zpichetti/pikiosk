@@ -9,7 +9,6 @@
           <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
           <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
           <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-          <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://source.unsplash.com/1600x900/?nature,water')">
@@ -32,29 +31,20 @@
     </div>
     <div class="col-md-3 calendars">
       <h3 class="text-center">Calendrier</h3>
-      <div class="row cal">
-        <div class="col calendar">
-          <div class="calendar-date text-center">
-            <p>12 septembre</p>
-            <p>09h00</p>
-            <p>Strasbourg</p>
-            <p>ERE 07</p>
+      <div class="row">
+        <% @calendars.each do |calendar| %>
+          <div class="col-md-12 calendar">
+            <div class="calendar-date text-center">
+              <p><%= calendar.date.strftime('%d/%m') %></p>
+              <p><%= calendar.date.strftime('%Hh%M') %></p>
+              <p><%= calendar.city %></p>
+              <p><%= calendar.location %></p>
+            </div>
+            <div class="calendar-content">
+              <%= calendar.title %>
+            </div>
           </div>
-          <div class="calendar-content">
-            Matinal de l'innovation
-          </div>
-        </div>
-        <div class="col calendar">
-          <div class="calendar-date text-center">
-            <p>23 Décembre</p>
-            <p>09h00</p>
-            <p>Lille</p>
-            <p>ERE 07</p>
-          </div>
-          <div class="calendar-content">
-            Matinal de l'innovation
-          </div>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>
@@ -78,7 +68,7 @@
         </div>
         <div class="col-md-4 text-center">
           <div class="meteo-today"><i class="fas fa-sun"></i> <%=  @meteo[2]["main"]["temp"].to_f.round %>°</div>
-          <p>demain</p>
+          <p>6h</p>
         </div>
       </div>
     </div>

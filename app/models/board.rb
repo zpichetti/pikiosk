@@ -2,8 +2,8 @@ require 'json'
 require "open-uri"
 
 class Board < ApplicationRecord
-  has_many :calendars
-  has_many :articles
+  has_many :calendars, dependent: :destroy
+  has_many :articles, dependent: :destroy
 
   validates :name, presence: true
   validates :location, presence: true
@@ -16,9 +16,5 @@ class Board < ApplicationRecord
     f += "&units=metric"
     serialized_meteo = open(f).read
     JSON.parse(serialized_meteo)["list"]
-  end
-
-  def news
-    
   end
 end

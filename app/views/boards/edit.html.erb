@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <%= simple_form_for(@board) do |f| %>
+        <%= f.input :name %>
+        <%= f.input :location %>
+        <%= f.submit "Update", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

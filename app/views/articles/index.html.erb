@@ -1,2 +1,25 @@
-<h1>Articles#index</h1>
-<p>Find me in app/views/articles/index.html.erb</p>
+<div class="container">
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Titre</th>
+        <th scope="col">Date</th>
+        <th scope="col">Photo</th>
+        <th scope="col"><i class="far fa-trash-alt"></i></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @articles.each_with_index do |article, index| %>
+        <tr>
+          <th scope="row"><%= index + 1 %></th>
+          <td><%= link_to article.title ,edit_board_article_path(@board,article) %></td>
+          <td><%= article.date.strftime('%d-%m-%y') if article.date %></td>  
+          <td><%= cl_image_tag article.photo ,width: 400 %></td>
+          <td><i class="far fa-trash-alt"></i></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to 'Add', new_board_article_path(@board), class: "btn btn-primary" %>
+</div>

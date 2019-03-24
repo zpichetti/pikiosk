@@ -9,3 +9,5 @@ import { updatetime } from '../components/time';
 if (document.getElementById("time")) {
   updatetime()
 }
+
+import "../plugins/flatpickr"
