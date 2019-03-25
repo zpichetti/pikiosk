@@ -32,6 +32,13 @@ class ArticlesController < ApplicationController
     redirect_to board_articles_path(@board)
   end
 
+  def destroy
+    @board = Board.find(params[:board_id])
+    @article = Article.find(params[:id])
+    @article.destroy
+    redirect_to board_articles_path(@board)
+  end
+
   private
 
   def create_params

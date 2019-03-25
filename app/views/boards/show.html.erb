@@ -27,13 +27,17 @@
         <% @calendars.each do |calendar| %>
           <div class="col-md-12 calendar">
             <div class="calendar-date text-center">
-              <p><%= calendar.date.strftime('%d/%m') %></p>
-              <p><%= calendar.date.strftime('%Hh%M') %></p>
-              <p><%= calendar.city %></p>
-              <p><%= calendar.location %></p>
+              <div>
+                <div><%= calendar.date.strftime('%d') %></div>
+                <div class="down"><%= calendar.date.strftime('%m') %></div>
+              </div>
             </div>
             <div class="calendar-content">
-              <%= calendar.title %>
+              <div>
+                <h4><%= calendar.title %></h4>
+                <p><%= calendar.date.strftime('%Hh%M') %></p>
+                <p><%= calendar.location %> - <%= calendar.city %></p>
+              </div>
             </div>
           </div>
         <% end %>

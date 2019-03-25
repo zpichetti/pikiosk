@@ -1,4 +1,5 @@
 <div class="container">
+  <h1>Article pour la Board : <%= @board.name %> </h1>
   <table class="table table-striped">
     <thead class="thead-dark">
       <tr>
@@ -16,7 +17,13 @@
           <td><%= link_to article.title ,edit_board_article_path(@board,article) %></td>
           <td><%= article.date.strftime('%d-%m-%y') if article.date %></td>  
           <td><%= cl_image_tag article.photo ,width: 400 %></td>
-          <td><i class="far fa-trash-alt"></i></td>
+          <td>
+            <%= link_to board_article_path(@board,article),
+              method: :delete,
+              data: { confirm: "Are you sure?" } do %>
+                <i class="far fa-trash-alt"></i>
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </tbody>

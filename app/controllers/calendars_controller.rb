@@ -36,6 +36,13 @@ class CalendarsController < ApplicationController
     redirect_to board_calendars_path(@board)
   end
 
+  def destroy
+    @board = Board.find(params[:board_id])
+    @calendar = Calendar.find(params[:id])
+    @calendar.destroy
+    redirect_to board_calendars_path(@board)
+  end
+
   private
 
   def create_params
