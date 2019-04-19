@@ -42,6 +42,6 @@ class ArticlesController < ApplicationController
   private
 
   def create_params
-    params.require(:article).permit(:title, :date, :photo)
+    params.require(:article).permit(:title, :date, :end_date, :photo)
   end
 end

@@ -5,7 +5,8 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">Titre</th>
-        <th scope="col">Date</th>
+        <th scope="col">Date début</th>
+        <th scope="col">Date fin</th>
         <th scope="col">Photo</th>
         <th scope="col"><i class="far fa-trash-alt"></i></th>
       </tr>
@@ -15,7 +16,8 @@
         <tr>
           <th scope="row"><%= index + 1 %></th>
           <td><%= link_to article.title ,edit_board_article_path(@board,article) %></td>
-          <td><%= article.date.strftime('%d-%m-%y') if article.date %></td>  
+          <td><%= article.date.strftime('%d-%m-%y') if article.date %></td>
+          <td><%= article.end_date.strftime('%d-%m-%Y') if article.end_date %></td>  
           <td><%= cl_image_tag article.photo ,width: 400 %></td>
           <td>
             <%= link_to board_article_path(@board,article),
