@@ -56,15 +56,46 @@
     <div class="col-md-3 meteo">
       <div class="row">
         <div class="col-md-4 text-center">
-          <div class="meteo-today"><i class="fas fa-sun"></i> <%=  @meteo[0]["main"]["temp"].to_f.round %>°</div>
+          <div class="meteo-today">
+            <%= icon('fas', 'sun') if @meteo[0]["weather"][0]["icon"].chop == "01" %>
+            <%= icon('fas', 'cloud-sun') if @meteo[0]["weather"][0]["icon"].chop == "02" %>
+            <%= icon('fas', 'cloud') if @meteo[0]["weather"][0]["icon"].chop == "03" %>
+            <%= icon('fas', 'cloud') if @meteo[0]["weather"][0]["icon"].chop == "04" %>
+            <%= icon('fas', 'cloud-rain') if @meteo[0]["weather"][0]["icon"].chop == "09" %>
+            <%= icon('fas', 'cloud-sun-rain') if @meteo[0]["weather"][0]["icon"].chop == "10" %>
+            <%= icon('fas', 'bolt') if @meteo[0]["weather"][0]["icon"].chop == "11" %>
+            <%= icon('fas', 'snowflake') if @meteo[0]["weather"][0]["icon"].chop == "13" %>
+            <%= icon('fas', 'smog') if @meteo[0]["weather"][0]["icon"].chop == "50" %>
+            <%=  @meteo[0]["main"]["temp"].to_f.round %>°
+          </div>
           <p>Aujourd'hui</p>
         </div>
         <div class="col-md-4 text-center">
-          <div class="meteo-today"><i class="fas fa-sun"></i> <%=  @meteo[1]["main"]["temp"].to_f.round %>°</div>
+          <div class="meteo-today">
+          <%= icon('fas', 'sun') if @meteo[1]["weather"][0]["icon"].chop == "01" %>
+          <%= icon('fas', 'cloud-sun') if @meteo[1]["weather"][0]["icon"].chop == "02" %>
+          <%= icon('fas', 'cloud') if @meteo[1]["weather"][0]["icon"].chop == "03" %>
+          <%= icon('fas', 'cloud') if @meteo[1]["weather"][0]["icon"].chop == "04" %>
+          <%= icon('fas', 'cloud-rain') if @meteo[1]["weather"][0]["icon"].chop == "09" %>
+          <%= icon('fas', 'cloud-sun-rain') if @meteo[0]["weather"][0]["icon"].chop == "10" %>
+          <%= icon('fas', 'bolt') if @meteo[1]["weather"][0]["icon"].chop == "11" %>
+          <%= icon('fas', 'snowflake') if @meteo[1]["weather"][0]["icon"].chop == "13" %>
+          <%= icon('fas', 'smog') if @meteo[1]["weather"][0]["icon"].chop == "50" %>
+          <%=  @meteo[1]["main"]["temp"].to_f.round %>°</div>
           <p>3h</p>
         </div>
         <div class="col-md-4 text-center">
-          <div class="meteo-today"><i class="fas fa-sun"></i> <%=  @meteo[2]["main"]["temp"].to_f.round %>°</div>
+          <div class="meteo-today">
+          <%= icon('fas', 'sun') if @meteo[2]["weather"][0]["icon"].chop == "01" %>
+          <%= icon('fas', 'cloud-sun') if @meteo[2]["weather"][0]["icon"].chop == "02" %>
+          <%= icon('fas', 'cloud') if @meteo[2]["weather"][0]["icon"].chop == "03" %>
+          <%= icon('fas', 'cloud') if @meteo[2]["weather"][0]["icon"].chop == "04" %>
+          <%= icon('fas', 'cloud-rain') if @meteo[2]["weather"][0]["icon"].chop == "09" %>
+          <%= icon('fas', 'cloud-sun-rain') if @meteo[2]["weather"][0]["icon"].chop == "10" %>
+          <%= icon('fas', 'bolt') if @meteo[2]["weather"][0]["icon"].chop == "11" %>
+          <%= icon('fas', 'snowflake') if @meteo[2]["weather"][0]["icon"].chop == "13" %>
+          <%= icon('fas', 'smog') if @meteo[2]["weather"][0]["icon"].chop == "50" %>
+          <%=  @meteo[2]["main"]["temp"].to_f.round %>°</div>
           <p>6h</p>
         </div>
       </div>
