@@ -9,6 +9,7 @@ class BoardsController < ApplicationController
     today = Time.now
     @board = Board.find_by(link: params[:link])
     @meteo = @board.meteo
+    @meteotime = ["Maintenant", "Dans 3h","Dans 6h"]
     @calendars = Calendar.where(board: @board).where("date > ?", Time.now - 1.hours).order(:date)
     @articles = Article.where(board: @board).where("end_date >= ?", Time.now).where("date <= ?", Time.now)
   end
