@@ -21,7 +21,13 @@
           <td><%= link_to "Articles", board_articles_path(board) %>(<%=board.articles.size %>)</td>  
           <td><%= link_to "Calendars", board_calendars_path(board) %>(<%=board.calendars.size %>)</td>
           <td><%= link_to board.link , board_path(board.link) %></td>
-          <td><i class="far fa-trash-alt"></i></td>
+          <td>
+            <%= link_to board_path(board),
+            method: :delete,
+            data: { confirm: "Are you sure?" } do %>
+              <i class="far fa-trash-alt"></i>
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </tbody>

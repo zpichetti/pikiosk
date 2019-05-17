@@ -38,6 +38,12 @@ class BoardsController < ApplicationController
     redirect_to boards_path()
   end
 
+  def destroy
+    @board = Board.find(params[:id])
+    @board.destroy
+    redirect_to boards_path
+  end
+
   private
 
   def create_params
